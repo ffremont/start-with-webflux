@@ -3,6 +3,7 @@ package com.example.demo.web.api;
 import com.example.demo.domain.model.Brewery;
 import com.example.demo.domain.model.Trend;
 import com.example.demo.domain.port.api.BreweryService;
+import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

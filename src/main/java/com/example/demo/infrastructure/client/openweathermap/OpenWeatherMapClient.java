@@ -36,6 +36,7 @@ public class OpenWeatherMapClient implements WeatherClient {
                 .bodyToMono(WeatherResponse.class)
                 .flatMap(wp -> wp.weather().stream().findFirst().map(Mono::just).orElse(Mono.empty()))
                 .delayElement(Duration.ofSeconds(3))
+                .timeout(Duration.ofSeconds(1))
                 ;
     }
 }

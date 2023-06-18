@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
 import java.util.List;
 
 @Repository
@@ -22,9 +23,8 @@ public class OpenBreweryDbClient implements BreveryClient {
                         .queryParam("by_country", state)
                         .build())
                 .retrieve()
-
-                .bodyToMono(new ParameterizedTypeReference<>(){})
-                ;
+                .bodyToMono(new ParameterizedTypeReference<List<Brewery>>(){})
+                .timeout(Duration.ofSeconds(1));
     }
 
 }

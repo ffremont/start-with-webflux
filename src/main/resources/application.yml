@@ -1,0 +1,8 @@
+resilience4j:
+  timelimiter:
+    metrics:
+      enabled: true
+    configs:
+      default:
+        timeoutDuration: 10s
+        cancelRunningFuture: true
